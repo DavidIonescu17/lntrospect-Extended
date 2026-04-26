@@ -534,7 +534,7 @@ Array.from(allHabits).forEach(habitName => {
   // Filter allMasterHabits to get details for the current habitName
   const habitDetails = allMasterHabits.find(h => h.name === habitName);
 
-  const sortedDates = Object.keys(habitsByDate).sort(); // Sort dates for streak calculation
+  const sortedDates = Object.keys(habitsByDate).sort((a, b) => a.localeCompare(b)); // Sort dates for streak calculation
 
   let currentStreak = 0;
   let longestStreak = 0;
