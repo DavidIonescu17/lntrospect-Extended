@@ -950,7 +950,7 @@ const MoodProfileDashboard = ({ navigation }) => {
 
   const pieChartData = moodDistributionData.map(mood => ({
     name: mood.label, // Use full label for legend
-    population: parseInt(mood.count as string), // Count of entries
+    population: Number.parseInt(mood.count as string), // Count of entries
     color: mood.color,
     legendFontColor: '#7F7F7F', // Default legend font color (won't be shown in custom legend)
     legendFontSize: 15, // Default legend font size (won't be shown in custom legend)

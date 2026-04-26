@@ -1124,7 +1124,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
               {['7d', '30d', '90d', '1y', 'all'].map((range) => (
                 <TouchableOpacity
                   key={range}
-                  style={[styles.dateRangeButton, timeframe === parseInt(range.replace('d', '').replace('y', '365')) && styles.dateRangeButtonActive]}
+                  style={[styles.dateRangeButton, timeframe === Number.parseInt(range.replace('d', '').replace('y', '365')) && styles.dateRangeButtonActive]}
                   onPress={() => {
                     let days;
                     switch (range) {
@@ -1138,7 +1138,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
                     setTimeframe(days);
                   }}
                 >
-                  <Text style={[styles.dateRangeButtonText, timeframe === parseInt(range.replace('d', '').replace('y', '365')) && styles.dateRangeButtonTextActive]}>
+                  <Text style={[styles.dateRangeButtonText, timeframe === Number.parseInt(range.replace('d', '').replace('y', '365')) && styles.dateRangeButtonTextActive]}>
                     {range === '1y' ? '1 Year' : range.toUpperCase()}
                   </Text>
                 </TouchableOpacity>
