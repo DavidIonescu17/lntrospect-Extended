@@ -778,7 +778,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
       const avgCompletionRate = Object.values(getHabitAnalytics.habitCompletionRates)
         .reduce((sum, habit) => sum + habit.rate, 0) / Object.keys(getHabitAnalytics.habitCompletionRates).length;
 
-      if (!isNaN(avgHabitsPerDay) && !isNaN(avgCompletionRate)) {
+     if (!Number.isNaN(avgHabitsPerDay) && !Number.isNaN(avgCompletionRate)) {
         insights.push({
           title: '📊 Habit Load Analysis',
           text: `You track an average of **${avgHabitsPerDay.toFixed(1)} habits per day** with an overall completion rate of **${avgCompletionRate.toFixed(1)}%**. ${avgHabitsPerDay > 5 ? 'Consider focusing on fewer habits for better consistency.' : 'You have a manageable habit load!'}`
