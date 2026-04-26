@@ -975,7 +975,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
         yAxisMax: 5,
         yAxisInterval: 1,
         formatYLabel: (label) => {
-            return Math.round(parseFloat(label)).toString();
+            return Math.round(Number.parseFloat(label)).toString();
         },
         // withCustomYAxisLabels: true, // Uncomment if you want to force these for mood too
         // yAxisLabels: customMoodYLabels,
@@ -998,7 +998,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
         yAxisMax: 1,
         yAxisInterval: 0.5,
         formatYLabel: (label) => {
-            return parseFloat(label).toFixed(1);
+            return (Number.parseFloat(label)).toFixed(1);
         },
         withCustomYAxisLabels: true, // Activate custom labels for sentiment
         yAxisLabels: customSentimentYLabels, // Assign the prepared labels
