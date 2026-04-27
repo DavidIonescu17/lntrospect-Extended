@@ -534,7 +534,7 @@ Array.from(allHabits).forEach(habitName => {
   // Filter allMasterHabits to get details for the current habitName
   const habitDetails = allMasterHabits.find(h => h.name === habitName);
 
-  const sortedDates = Object.keys(habitsByDate).sort(); // Sort dates for streak calculation
+  const sortedDates = Object.keys(habitsByDate).sort((a, b) => a.localeCompare(b)); // Sort dates for streak calculation
 
   let currentStreak = 0;
   let longestStreak = 0;
@@ -778,7 +778,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
       const avgCompletionRate = Object.values(getHabitAnalytics.habitCompletionRates)
         .reduce((sum, habit) => sum + habit.rate, 0) / Object.keys(getHabitAnalytics.habitCompletionRates).length;
 
-      if (!isNaN(avgHabitsPerDay) && !isNaN(avgCompletionRate)) {
+     if (!Number.isNaN(avgHabitsPerDay) && !Number.isNaN(avgCompletionRate)) {
         insights.push({
           title: '📊 Habit Load Analysis',
           text: `You track an average of **${avgHabitsPerDay.toFixed(1)} habits per day** with an overall completion rate of **${avgCompletionRate.toFixed(1)}%**. ${avgHabitsPerDay > 5 ? 'Consider focusing on fewer habits for better consistency.' : 'You have a manageable habit load!'}`
@@ -975,7 +975,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
         yAxisMax: 5,
         yAxisInterval: 1,
         formatYLabel: (label) => {
-            return Math.round(parseFloat(label)).toString();
+            return Math.round(Number.parseFloat(label)).toString();
         },
         // withCustomYAxisLabels: true, // Uncomment if you want to force these for mood too
         // yAxisLabels: customMoodYLabels,
@@ -998,7 +998,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
         yAxisMax: 1,
         yAxisInterval: 0.5,
         formatYLabel: (label) => {
-            return parseFloat(label).toFixed(1);
+            return (Number.parseFloat(label)).toFixed(1);
         },
         withCustomYAxisLabels: true, // Activate custom labels for sentiment
         yAxisLabels: customSentimentYLabels, // Assign the prepared labels
@@ -1124,7 +1124,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
               {['7d', '30d', '90d', '1y', 'all'].map((range) => (
                 <TouchableOpacity
                   key={range}
-                  style={[styles.dateRangeButton, timeframe === parseInt(range.replace('d', '').replace('y', '365')) && styles.dateRangeButtonActive]}
+                  style={[styles.dateRangeButton, timeframe === Number.parseInt(range.replace('d', '').replace('y', '365')) && styles.dateRangeButtonActive]}
                   onPress={() => {
                     let days;
                     switch (range) {
@@ -1138,7 +1138,7 @@ for (let i = 0; i < reversedDates.length && streakOngoing; i++) {
                     setTimeframe(days);
                   }}
                 >
-                  <Text style={[styles.dateRangeButtonText, timeframe === parseInt(range.replace('d', '').replace('y', '365')) && styles.dateRangeButtonTextActive]}>
+                  <Text style={[styles.dateRangeButtonText, timeframe === Number.parseInt(range.replace('d', '').replace('y', '365')) && styles.dateRangeButtonTextActive]}>
                     {range === '1y' ? '1 Year' : range.toUpperCase()}
                   </Text>
                 </TouchableOpacity>

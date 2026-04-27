@@ -9,6 +9,8 @@ const styles = StyleSheet.create({
   },
   dailyHabitsList: {
     flex: 1,
+    paddingHorizontal: 16,
+    paddingTop: 16,
   },
   habitItem: {
     flexDirection: 'row',
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     color: '#1f1937',
+    flex: 1,
     flexShrink: 1,
     lineHeight: 22,
   },
@@ -51,10 +54,11 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   deleteHabitButton: {
-    paddingLeft: 12,
     padding: 8,
+    paddingLeft: 12,
   },
   emptyState: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 60,
@@ -84,7 +88,7 @@ const styles = StyleSheet.create({
   },
   addHabitButton: {
     flexDirection: 'row',
-    backgroundColor: '#8b5cf6', // Primary purple
+    backgroundColor: '#8b5cf6',
     paddingVertical: 16,
     paddingHorizontal: 32,
     borderRadius: 50,
@@ -94,8 +98,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 16,
     elevation: 8,
-    // Gradient effect will need to be implemented with LinearGradient component
-    // This is a fallback solid color
   },
   addHabitButtonText: {
     color: '#ffffff',
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(15, 12, 41, 0.6)', // Dark purple overlay
+    backgroundColor: 'rgba(15, 12, 41, 0.6)',
   },
   addHabitModalContent: {
     width: '92%',
@@ -141,7 +143,6 @@ const styles = StyleSheet.create({
     letterSpacing: -0.25,
   },
   habitOptionsList: {
-    // This style might not be directly used if using FlatList for all content
     maxHeight: 160,
     borderWidth: 1,
     borderColor: '#e4e4fc',
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   addCustomHabitButton: {
-    backgroundColor: '#10b981', // Emerald green
+    backgroundColor: '#10b981',
     paddingHorizontal: 20,
     height: 56,
     justifyContent: 'center',
@@ -225,10 +226,9 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   modalButton: {
-    // Adjusted for close button in header
     padding: 8,
-    borderRadius: 20, // Make it circular
-    backgroundColor: '#f0f0f0', // Light background for close button
+    borderRadius: 20,
+    backgroundColor: '#f0f0f0',
   },
   cancelButton: {
     backgroundColor: '#f3f4f6',
@@ -240,7 +240,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
   },
-  // Master Habits Manager Styles
   masterHabitsManagerContainer: {
     flex: 1,
     padding: 20,
@@ -271,8 +270,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingVertical: 14,
-    // No borderBottomWidth here if it's the last item in a list, FlatList item separator is better
-    // For individual items rendered directly, keep it
     borderBottomWidth: 1,
     borderBottomColor: '#f5f3ff',
   },
@@ -281,7 +278,7 @@ const styles = StyleSheet.create({
     color: '#374151',
     flex: 1,
     fontWeight: '500',
-    marginLeft: 12, // Added margin for icon
+    marginLeft: 12,
   },
   addRemoveMasterHabitButton: {
     paddingVertical: 8,
@@ -305,12 +302,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
   },
-  masterHabitsScrollView: {
-    // Removed maxHeight here to allow outer FlatList to scroll.
-    // If you need a max height for *visual grouping*, wrap it in a View with a max height.
-    // For now, removing it so the main FlatList can scroll seamlessly.
-    // maxHeight: 220,
-  },
+  masterHabitsScrollView: {},
   addCustomHabitSection: {
     marginTop: 24,
     marginBottom: 24,
@@ -323,15 +315,12 @@ const styles = StyleSheet.create({
     letterSpacing: -0.25,
   },
   customHabitsListContainer: {
-    // Removed maxHeight for same reason as masterHabitsScrollView
-    // maxHeight: 160,
     borderWidth: 1,
     borderColor: '#e4e4fc',
     borderRadius: 16,
     marginBottom: 12,
     backgroundColor: '#ffffff',
   },
-  // Icon Picker Styles
   iconPickerContainer: {
     marginBottom: 20,
   },
@@ -344,10 +333,8 @@ const styles = StyleSheet.create({
   },
   iconGrid: {
     flexDirection: 'row',
-    flexWrap: 'wrap', // Allow wrapping for better layout on smaller screens
+    flexWrap: 'wrap',
     justifyContent: 'flex-start',
-    // Removed maxHeight here to allow outer FlatList to scroll naturally for icon list
-    // maxHeight: 140,
     borderWidth: 1,
     borderColor: '#e4e4fc',
     borderRadius: 16,
@@ -377,14 +364,9 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   flatListContentContainer: {
-    paddingBottom: 20, // Add some padding at the bottom of the entire scrollable content
+    paddingBottom: 20,
   },
-
-  // Additional modern components
   gradientButton: {
-    // This style is for reference - actual gradients require LinearGradient component
-    backgroundColor: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #c084fc 100%)',
-    //backgroundColor: '#8b5cf6', // Fallback
     borderRadius: 50,
     shadowColor: '#8b5cf6',
     shadowOffset: { width: 0, height: 8 },
@@ -392,7 +374,6 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
     elevation: 8,
   },
-
   modernCard: {
     backgroundColor: '#ffffff',
     borderRadius: 20,
@@ -405,15 +386,12 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     elevation: 5,
   },
-
   purpleAccent: {
     color: '#8b5cf6',
   },
-
   darkPurpleText: {
     color: '#4c1d95',
   },
-
   lightPurpleBackground: {
     backgroundColor: '#f3f0ff',
   },
@@ -430,74 +408,6 @@ const styles = StyleSheet.create({
     color: '#333',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
-  },
-  
-  // Updated habit item styles to work with colored backgrounds
-  habitItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#f5f5f5', // This will be overridden by the color
-    borderRadius: 12,
-    marginBottom: 8,
-    paddingVertical: 16,
-    paddingHorizontal: 16,
-    elevation: 2, // Android shadow
-    shadowColor: '#000', // iOS shadow
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  
-  habitContent: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  
-  habitIcon: {
-    marginRight: 12,
-  },
-  
-  habitText: {
-    fontSize: 16,
-    fontWeight: '500',
-    flex: 1,
-  },
-  
-  deleteHabitButton: {
-    padding: 4,
-    marginLeft: 8,
-  },
-  
-  // Keep your existing styles for other elements
-  habitsContainer: {
-    flex: 1,
-    
-  },
-  
-  dailyHabitsList: {
-    flex: 1,
-    paddingHorizontal: 16,
-    paddingTop: 16,
-  },
-  
-  emptyState: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 40,
-  },
-  
-  emptyStateText: {
-    fontSize: 16,
-    color: '#666',
-    textAlign: 'center',
-    marginTop: 16,
-    paddingHorizontal: 32,
   },
 });
 
