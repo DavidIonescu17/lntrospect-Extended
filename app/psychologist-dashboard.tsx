@@ -39,6 +39,13 @@ export default function PsychologistDashboard() {
     const [clinicalNote, setClinicalNote] = useState('');
     const [savingNote, setSavingNote] = useState(false);
 
+    const generateSecureFourDigitCode = () => {
+        const array = new Uint16Array(1);
+        window.crypto.getRandomValues(array);
+        // Ensure it's 4 digits (1000-9999)
+        return (array[0] % 9000) + 1000;
+    };
+
     // 1. Initial Data Load
     useEffect(() => {
         const currentUser = auth.currentUser;
@@ -55,7 +62,7 @@ export default function PsychologistDashboard() {
 
                 if (!data.pairingCode) {
                     const namePart = (data.fullName || "DOC").substring(0, 3).toUpperCase();
-                    const randomPart = Math.floor(1000 + Math.random() * 9000);
+                    const randomPart = generateSecureFourDigitCode();
                     const newCode = `${namePart}-${randomPart}`;
                     await updateDoc(userRef, { pairingCode: newCode });
                     setPairingCode(newCode);
